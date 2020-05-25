@@ -1,0 +1,15 @@
+<h1>Busqueda de heroes <small>{{termino}}</small></h1>
+<hr>
+
+<div class="row" *ngIf="heroes.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existe con ese termino
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
+    <!-- *ngFor="let heroe of heroes;let i = index;" -->
+    <app-heroe-tarjeta (NombreHeroeSeleccionado)="verHeroe( $event )" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes;let i = index;"></app-heroe-tarjeta>
+</div>
